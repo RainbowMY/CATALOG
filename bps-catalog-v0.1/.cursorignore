@@ -1,0 +1,14 @@
+﻿# Heavy / generated — keep IDE responsive
+node_modules/
+dist/
+dist-ssr/
+share/*.html
+dist/*.html
+**/*.tsbuildinfo
+
+# Large binary assets (still on disk for Vite; skip IDE/AI index)
+src/assets/**/*.png
+src/assets/**/*.jpg
+src/assets/**/*.jpeg
+src/assets/**/*.webp
+public/**/*.png

@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #e11d2e;
+  --color-brand-dark: #c01222;
+  --color-brand-soft: #fff1f2;
+  --color-ink: #1f232b;
+  --color-muted: #8a919c;
+  --color-line: #eceef2;
+  --color-canvas: #f3f4f6;
+  --color-panel: #ffffff;
+  --color-sidebar: #ffffff;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", "Manrope", ui-sans-serif, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-canvas);
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:where(:not([class*='text-'])) {
+  color: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d0d4dc;
+  border-radius: 999px;
+}
+
+.product-card {
+  transition:
+    transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+  border-color: #f0c7cb;
+  box-shadow: 0 10px 24px rgba(18, 20, 26, 0.1);
+  z-index: 2;
+}
+
+.fade-up {
+  animation: fadeUp 360ms ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.banner-slide {
+  animation: bannerIn 420ms ease both;
+}
+
+@keyframes bannerIn {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.marquee-left,
+.marquee-right {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.marquee-left {
+  animation-name: marqueeLeft;
+}
+
+.marquee-right {
+  animation-name: marqueeRight;
+}
+
+@keyframes marqueeLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeRight {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-left,
+  .marquee-right {
+    animation: none;
+  }
+}
